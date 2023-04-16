@@ -1,0 +1,4666 @@
+{
+  "v": 1,
+  "id": "85f976d9-4d2d-45f9-922d-25d2d9c11f87",
+  "rev": 1,
+  "name": "FortiGate Syslog",
+  "summary": "Dashboards for FortiGate syslog data",
+  "description": "# graylog-fortigate-syslog\nA Graylog Content Pack of dashboards for FortiGate syslog data\n\n## Setup\n\nA complete guide can be found on [my blog][blog]. It explains how to create a single-node Graylog instance, import this Content pack, and configure FortiGate firewalls to send logs to the Graylog server.\n\n## Streams\n\nIn Graylog, a stream routes log data to a specific index based on rules. This Content Pack includes one stream.\n\n### FortiGate Syslog\n\nThe FortiGate Syslog stream includes a rule that matches all logs with a field named `devid` that has a value that starts with `FGT`, which is the beginning of every FortiGate seral number, and is included in every FordiGate log message.\n\n## Dashboards\n\n### FortiGate\n\nThe fortiGate dashboard has multiple pages. Each page contains a collection of dashboard widgets releated to a specific type of log data.\n\n- Overview\n- Application Control\n- DNS Filter\n- Forward Traffic\n- IPS\n- Local Traffic\n- Multicast Traffic\n- SSL/TLS/SSH Inspection\n- VPN\n- Web Filter\n\n\n[blog]: https://seanthegeek.net/1270/how-to-create-a-single-node-graylog-instance-and-analyze-fortigate-logs/",
+  "vendor": "Sean Whalen",
+  "url": "https://github.com/seanthegeek/graylog-fortigate-syslog",
+  "parameters": [],
+  "entities": [
+    {
+      "v": "1",
+      "type": {
+        "name": "dashboard",
+        "version": "2"
+      },
+      "id": "27bef90d-2422-4dbe-ae50-2e70db8959f2",
+      "data": {
+        "summary": {
+          "@type": "string",
+          "@value": "Visualizations of FortiGate syslog data"
+        },
+        "search": {
+          "queries": [
+            {
+              "id": "34d9ef39-dd5c-4454-9307-a94551327f9d",
+              "timerange": {
+                "from": 300,
+                "type": "relative"
+              },
+              "filters": [],
+              "query": {
+                "type": "elasticsearch",
+                "query_string": ""
+              },
+              "search_types": []
+            },
+            {
+              "id": "0444614a-4f87-407e-953f-b6ade0610d45",
+              "timerange": {
+                "from": 300,
+                "type": "relative"
+              },
+              "filters": [],
+              "query": {
+                "type": "elasticsearch",
+                "query_string": ""
+              },
+              "search_types": [
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "eventtype:dns\\-response"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "catdesc"
+                      ],
+                      "limit": 20
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "a2ce8b7c-d07d-493d-953b-a24c5c44b45a",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "eventtype:dns\\-query"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "srcip"
+                      ],
+                      "limit": 500
+                    },
+                    {
+                      "type": "values",
+                      "fields": [
+                        "srcmac"
+                      ],
+                      "limit": 500
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "21705b0e-7ac2-4093-8d65-8ead4ef32f7f",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "eventtype:dns\\-query"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "dstip"
+                      ],
+                      "limit": 500
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "9048c489-b2a9-4b9b-9607-888c6fb9ceaf",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "eventtype:dns\\-response"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "action"
+                      ],
+                      "limit": 20
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "6b50b036-c2b8-4b84-a67a-d92146b3be84",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:dns"
+                  },
+                  "name": null,
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "offset": 0,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "filter": null,
+                  "decorators": [],
+                  "type": "messages",
+                  "id": "b95c6b8b-9257-4d5e-b0c4-a1fb5ce904a0",
+                  "limit": 150,
+                  "filters": []
+                }
+              ]
+            },
+            {
+              "id": "d091f7dd-dc7d-4eae-951c-fb094534ffe1",
+              "timerange": {
+                "from": 300,
+                "type": "relative"
+              },
+              "filters": [],
+              "query": {
+                "type": "elasticsearch",
+                "query_string": ""
+              },
+              "search_types": [
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:ips"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 2592000,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "crlevel"
+                      ],
+                      "limit": 15
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "96ad286e-e2dc-47cb-995f-3aceaac07d66",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:ips"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 604800,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "action"
+                      ],
+                      "limit": 15
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "97657504-87f2-4649-aa53-0c36c9ac2a86",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:ips"
+                  },
+                  "name": null,
+                  "timerange": {
+                    "from": 604800,
+                    "type": "relative"
+                  },
+                  "offset": 0,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "filter": null,
+                  "decorators": [],
+                  "type": "messages",
+                  "id": "7a965634-07bd-42f5-a78c-6bbe81d8d77f",
+                  "limit": 150,
+                  "filters": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:ips"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 604800,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "attackid"
+                      ],
+                      "limit": 1000
+                    },
+                    {
+                      "type": "values",
+                      "fields": [
+                        "attack"
+                      ],
+                      "limit": 1000
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "3bb28260-c1fc-42aa-b2b8-507172d87c04",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:ips"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 604800,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "srccountry"
+                      ],
+                      "limit": 15
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "6cb07d43-2c3b-4dfa-a48d-911381c1ef61",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:ips"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 604800,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "srcip"
+                      ],
+                      "limit": 1000
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "e9f42890-eadb-4ba0-adef-fbbb4263da34",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                }
+              ]
+            },
+            {
+              "id": "e6a39179-8355-4c52-83b0-9b771f546c75",
+              "timerange": {
+                "from": 300,
+                "type": "relative"
+              },
+              "filters": [],
+              "query": {
+                "type": "elasticsearch",
+                "query_string": ""
+              },
+              "search_types": [
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:ssl"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 86400,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "action"
+                      ],
+                      "limit": 15
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "103083fb-acef-4ae2-ad6f-68cce6a24bc3",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:ssl"
+                  },
+                  "name": null,
+                  "timerange": {
+                    "from": 86400,
+                    "type": "relative"
+                  },
+                  "offset": 0,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "filter": null,
+                  "decorators": [],
+                  "type": "messages",
+                  "id": "4f33c522-e48b-425a-8223-9fa7242c91d8",
+                  "limit": 150,
+                  "filters": []
+                }
+              ]
+            },
+            {
+              "id": "9d3956e6-8403-43e2-9794-6287c22e83e3",
+              "timerange": {
+                "from": 300,
+                "type": "relative"
+              },
+              "filters": [],
+              "query": {
+                "type": "elasticsearch",
+                "query_string": ""
+              },
+              "search_types": [
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:webfilter"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "catdesc"
+                      ],
+                      "limit": 15
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "abd2eff3-29c5-4b2c-9fe0-ff109b672035",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:webfilter"
+                  },
+                  "name": null,
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "offset": 0,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "filter": null,
+                  "decorators": [],
+                  "type": "messages",
+                  "id": "9d1337df-b50d-4682-9c9e-d19fa35750aa",
+                  "limit": 150,
+                  "filters": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:webfilter"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "action"
+                      ],
+                      "limit": 15
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "adfb4789-a0d0-4c62-a559-37a3245eea31",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                }
+              ]
+            },
+            {
+              "id": "7f432e7d-7180-4335-8fa6-b3720401fdf9",
+              "timerange": {
+                "from": 300,
+                "type": "relative"
+              },
+              "filters": [],
+              "query": {
+                "type": "elasticsearch",
+                "query_string": ""
+              },
+              "search_types": [
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": ""
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "source"
+                      ],
+                      "limit": 1000
+                    },
+                    {
+                      "type": "values",
+                      "fields": [
+                        "devid"
+                      ],
+                      "limit": 1000
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "003e338d-061d-44e0-bde8-2e138a1d7991",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": ""
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "Message Count",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [],
+                  "type": "pivot",
+                  "id": "ceef4194-9349-4ec7-8050-1c51e61fccfe",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": ""
+                  },
+                  "name": null,
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "offset": 0,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "filter": null,
+                  "decorators": [],
+                  "type": "messages",
+                  "id": "44feb8b9-d3fb-4b71-b266-6aeb7ad2612b",
+                  "limit": 150,
+                  "filters": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": ""
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "level"
+                      ],
+                      "limit": 15
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "498d6b61-163b-4e28-944a-f5a6a17c6666",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": ""
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "subtype"
+                      ],
+                      "limit": 100
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "2502dbbb-6184-4f50-8f28-1b3755450637",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                }
+              ]
+            },
+            {
+              "id": "9d8f85ce-f536-44d4-95d6-c2223e233a42",
+              "timerange": {
+                "from": 300,
+                "type": "relative"
+              },
+              "filters": [],
+              "query": {
+                "type": "elasticsearch",
+                "query_string": ""
+              },
+              "search_types": [
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:forward"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "srcip",
+                        "srcmac",
+                        "srcname"
+                      ],
+                      "limit": 500
+                    },
+                    {
+                      "type": "values",
+                      "fields": [
+                        "srchwvendor"
+                      ],
+                      "limit": 500
+                    },
+                    {
+                      "type": "values",
+                      "fields": [
+                        "srcfamily"
+                      ],
+                      "limit": 500
+                    },
+                    {
+                      "type": "values",
+                      "fields": [
+                        "osname"
+                      ],
+                      "limit": 500
+                    },
+                    {
+                      "type": "values",
+                      "fields": [
+                        "devtype"
+                      ],
+                      "limit": 500
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "d827ee27-d4cd-49c2-855e-f4fcea892d94",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:forward"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "srcintf"
+                      ],
+                      "limit": 500
+                    },
+                    {
+                      "type": "values",
+                      "fields": [
+                        "dstintf"
+                      ],
+                      "limit": 500
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "179d92bd-031d-431c-a5e6-29d14dcf3599",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:forward AND _exists_:app"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "app"
+                      ],
+                      "limit": 500
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "f8c31192-d72e-49d0-8e07-9e1014952426",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:forward"
+                  },
+                  "name": null,
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "offset": 0,
+                  "streams": [],
+                  "filter": null,
+                  "decorators": [],
+                  "type": "messages",
+                  "id": "0c86ea94-20ad-4de8-a24f-9476110767a6",
+                  "limit": 150,
+                  "filters": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:forward"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "dstip"
+                      ],
+                      "limit": 500
+                    },
+                    {
+                      "type": "values",
+                      "fields": [
+                        "dstname"
+                      ],
+                      "limit": 500
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "d047e600-b742-4c38-a425-50cef647ccfb",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                }
+              ]
+            },
+            {
+              "id": "72074b7f-aa55-4176-98e5-24e96325d82b",
+              "timerange": {
+                "from": 300,
+                "type": "relative"
+              },
+              "filters": [],
+              "query": {
+                "type": "elasticsearch",
+                "query_string": ""
+              },
+              "search_types": [
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:local"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "srcip",
+                        "srcmac",
+                        "srcname"
+                      ],
+                      "limit": 500
+                    },
+                    {
+                      "type": "values",
+                      "fields": [
+                        "srchwvendor"
+                      ],
+                      "limit": 500
+                    },
+                    {
+                      "type": "values",
+                      "fields": [
+                        "srcfamily"
+                      ],
+                      "limit": 500
+                    },
+                    {
+                      "type": "values",
+                      "fields": [
+                        "osname"
+                      ],
+                      "limit": 500
+                    },
+                    {
+                      "type": "values",
+                      "fields": [
+                        "devtype"
+                      ],
+                      "limit": 500
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "6be2c492-9853-4aee-b0dc-21f23f7ce69b",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:local"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "srcintf"
+                      ],
+                      "limit": 500
+                    },
+                    {
+                      "type": "values",
+                      "fields": [
+                        "dstintf"
+                      ],
+                      "limit": 500
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "88162f9f-f4f7-4a38-9966-40314d202252",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:local AND _exists_:app"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "app"
+                      ],
+                      "limit": 500
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "44d436c0-7c48-4c6c-a6aa-8f9868d9038b",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:local"
+                  },
+                  "name": null,
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "offset": 0,
+                  "streams": [],
+                  "filter": null,
+                  "decorators": [],
+                  "type": "messages",
+                  "id": "f11775e2-dd92-474f-9175-e4f9c91b3197",
+                  "limit": 150,
+                  "filters": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:local"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "dstip"
+                      ],
+                      "limit": 500
+                    },
+                    {
+                      "type": "values",
+                      "fields": [
+                        "dstname"
+                      ],
+                      "limit": 500
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "d044655d-b36d-4330-8d31-51aae5eb20b2",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                }
+              ]
+            },
+            {
+              "id": "db280891-ac9d-4c87-9ee0-3b2e9a9ebc6a",
+              "timerange": {
+                "from": 300,
+                "type": "relative"
+              },
+              "filters": [],
+              "query": {
+                "type": "elasticsearch",
+                "query_string": ""
+              },
+              "search_types": [
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:multicast"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "srcintf"
+                      ],
+                      "limit": 500
+                    },
+                    {
+                      "type": "values",
+                      "fields": [
+                        "dstintf"
+                      ],
+                      "limit": 500
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "b966b041-791c-4094-a57c-f004cbecb120",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:multicast"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "action"
+                      ],
+                      "limit": 50
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "19a123ed-4348-41ae-8ebd-3f919dc00586",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:multicast"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "service"
+                      ],
+                      "limit": 500
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "f3433e23-8ef6-4e71-9801-7ed48aae1168",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:multicast"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "srcip"
+                      ],
+                      "limit": 500
+                    },
+                    {
+                      "type": "values",
+                      "fields": [
+                        "srcname"
+                      ],
+                      "limit": 500
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "351196ba-2b98-40c6-9d6b-5d93fa080b90",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:multicast"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "dstip"
+                      ],
+                      "limit": 500
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "f77d637b-f837-4fda-8928-303e5bfb9c05",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:multicast"
+                  },
+                  "name": null,
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "offset": 0,
+                  "streams": [],
+                  "filter": null,
+                  "decorators": [],
+                  "type": "messages",
+                  "id": "b2f6d548-7da2-437d-bb87-a4db5fb8a746",
+                  "limit": 150,
+                  "filters": []
+                }
+              ]
+            },
+            {
+              "id": "a36fef84-e163-4220-95f8-94d0022ed5a1",
+              "timerange": {
+                "from": 300,
+                "type": "relative"
+              },
+              "filters": [],
+              "query": {
+                "type": "elasticsearch",
+                "query_string": ""
+              },
+              "search_types": [
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:app\\-ctrl"
+                  },
+                  "name": null,
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "offset": 0,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "filter": null,
+                  "decorators": [],
+                  "type": "messages",
+                  "id": "fdc382cd-85af-45b4-8124-fb85bcba5c6f",
+                  "limit": 150,
+                  "filters": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:app\\-ctrl"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "app"
+                      ],
+                      "limit": 500
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "299dc872-55fe-4e7e-bf7c-6bef5005ef8f",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:app\\-ctrl"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "dstip"
+                      ],
+                      "limit": 500
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "38ff3c0a-3143-41d4-8fca-103b57a154bd",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:app\\-ctrl"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "action"
+                      ],
+                      "limit": 20
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "c08d61af-ea2c-4bcb-8e54-77367000bce2",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:app\\-ctrl"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "srcip"
+                      ],
+                      "limit": 500
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "1912826d-7bef-458e-a524-8d52c889f0f4",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                },
+                {
+                  "query": {
+                    "type": "elasticsearch",
+                    "query_string": "subtype:app\\-ctrl"
+                  },
+                  "name": "chart",
+                  "timerange": {
+                    "from": 300,
+                    "type": "relative"
+                  },
+                  "column_limit": null,
+                  "streams": [
+                    "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                  ],
+                  "row_limit": null,
+                  "series": [
+                    {
+                      "type": "count",
+                      "id": "count()",
+                      "field": null
+                    }
+                  ],
+                  "filter": null,
+                  "rollup": true,
+                  "row_groups": [
+                    {
+                      "type": "values",
+                      "fields": [
+                        "app"
+                      ],
+                      "limit": 20
+                    }
+                  ],
+                  "type": "pivot",
+                  "id": "aa690de3-07dc-4e1a-af1c-ec698498adf5",
+                  "filters": [],
+                  "column_groups": [],
+                  "sort": []
+                }
+              ]
+            }
+          ],
+          "parameters": [],
+          "requires": {},
+          "owner": "sean",
+          "created_at": "2023-04-16T16:44:01.147Z"
+        },
+        "created_at": "2023-04-15T21:53:54.019Z",
+        "requires": {},
+        "state": {
+          "a36fef84-e163-4220-95f8-94d0022ed5a1": {
+            "selected_fields": null,
+            "static_message_list_id": null,
+            "titles": {
+              "tab": {
+                "title": "Application Control"
+              },
+              "widget": {
+                "d576e359-11f4-4a5d-993b-2f8361910cbb": "Top 20 Applications",
+                "c0230339-00f7-4ad0-b7a1-a5cd249b4fec": "Action",
+                "a034857c-5241-4dfc-ab0b-a636b05fc7e9": "Traffic Type",
+                "ee42cfae-87a9-400f-b837-e107a372e294": "Top 500 Destinations",
+                "749acccd-93e5-4a82-9365-c3df5207dfd7": "Top 500 Applications",
+                "3cb45dcb-6d39-45d9-b340-0e15d5b0f982": "Details",
+                "ff79bc69-9e97-49c9-857b-0eec010cf998": "Top 500 Sources"
+              }
+            },
+            "widgets": [
+              {
+                "id": "c0230339-00f7-4ad0-b7a1-a5cd249b4fec",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:app\\-ctrl"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "pie",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 20,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "action"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 20
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": null,
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "3cb45dcb-6d39-45d9-b340-0e15d5b0f982",
+                "type": "messages",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:app\\-ctrl"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "fields": [
+                    "timestamp",
+                    "srcname",
+                    "srcip",
+                    "dstip",
+                    "dstport",
+                    "app",
+                    "action"
+                  ],
+                  "show_message_row": true,
+                  "show_summary": true,
+                  "decorators": [],
+                  "sort": [
+                    {
+                      "type": "pivot",
+                      "field": "timestamp",
+                      "direction": "Descending"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "749acccd-93e5-4a82-9365-c3df5207dfd7",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:app\\-ctrl"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "table",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 500,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "app"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "d576e359-11f4-4a5d-993b-2f8361910cbb",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:app\\-ctrl"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "pie",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 20,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "app"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 20
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": null,
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "ee42cfae-87a9-400f-b837-e107a372e294",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:app\\-ctrl"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "table",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 500,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "dstip"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "ff79bc69-9e97-49c9-857b-0eec010cf998",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:app\\-ctrl"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "table",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 500,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "srcip"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              }
+            ],
+            "widget_mapping": {
+              "749acccd-93e5-4a82-9365-c3df5207dfd7": [
+                "299dc872-55fe-4e7e-bf7c-6bef5005ef8f"
+              ],
+              "3cb45dcb-6d39-45d9-b340-0e15d5b0f982": [
+                "fdc382cd-85af-45b4-8124-fb85bcba5c6f"
+              ],
+              "d576e359-11f4-4a5d-993b-2f8361910cbb": [
+                "aa690de3-07dc-4e1a-af1c-ec698498adf5"
+              ],
+              "c0230339-00f7-4ad0-b7a1-a5cd249b4fec": [
+                "c08d61af-ea2c-4bcb-8e54-77367000bce2"
+              ],
+              "ee42cfae-87a9-400f-b837-e107a372e294": [
+                "38ff3c0a-3143-41d4-8fca-103b57a154bd"
+              ],
+              "ff79bc69-9e97-49c9-857b-0eec010cf998": [
+                "1912826d-7bef-458e-a524-8d52c889f0f4"
+              ]
+            },
+            "positions": {
+              "749acccd-93e5-4a82-9365-c3df5207dfd7": {
+                "col": 9,
+                "row": 16,
+                "height": 4,
+                "width": 4
+              },
+              "3cb45dcb-6d39-45d9-b340-0e15d5b0f982": {
+                "col": 1,
+                "row": 18,
+                "height": 5,
+                "width": "Infinity"
+              },
+              "d576e359-11f4-4a5d-993b-2f8361910cbb": {
+                "col": 1,
+                "row": 8,
+                "height": 5,
+                "width": 9
+              },
+              "c0230339-00f7-4ad0-b7a1-a5cd249b4fec": {
+                "col": 10,
+                "row": 8,
+                "height": 5,
+                "width": 3
+              },
+              "ee42cfae-87a9-400f-b837-e107a372e294": {
+                "col": 5,
+                "row": 13,
+                "height": 4,
+                "width": 4
+              },
+              "ff79bc69-9e97-49c9-857b-0eec010cf998": {
+                "col": 1,
+                "row": 13,
+                "height": 4,
+                "width": 4
+              }
+            },
+            "formatting": {
+              "highlighting": []
+            },
+            "display_mode_settings": {
+              "positions": {}
+            }
+          },
+          "d091f7dd-dc7d-4eae-951c-fb094534ffe1": {
+            "selected_fields": null,
+            "static_message_list_id": null,
+            "titles": {
+              "tab": {
+                "title": "IPS"
+              },
+              "widget": {
+                "3804338a-f8a1-4147-9a4f-0a75f3bf594a": "Severity",
+                "6560d99f-3012-4b4e-b79c-da58f571267c": "Action",
+                "658ea93a-90ff-49dc-925a-05c69b694741": "Top 20 Source Countries",
+                "37230a0a-f3b4-4fab-94b1-cfa1423fe945": "Attacks",
+                "24056bb3-21e9-4a0a-9690-1037c658f1ae": "Atack Source IP Addresses"
+              }
+            },
+            "widgets": [
+              {
+                "id": "e1fe56f6-35fc-4bc6-bc7f-cf9e467baf0c",
+                "type": "messages",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 604800,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:ips"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "fields": [
+                    "timestamp",
+                    "attackid",
+                    "attack",
+                    "srccountry",
+                    "srcip",
+                    "dstip",
+                    "dstport",
+                    "action"
+                  ],
+                  "show_message_row": true,
+                  "show_summary": true,
+                  "decorators": [],
+                  "sort": [
+                    {
+                      "type": "pivot",
+                      "field": "timestamp",
+                      "direction": "Descending"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "658ea93a-90ff-49dc-925a-05c69b694741",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 604800,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:ips"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "pie",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 15,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "srccountry"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 15
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": null,
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "3804338a-f8a1-4147-9a4f-0a75f3bf594a",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 2592000,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:ips"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "pie",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 15,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "crlevel"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 15
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": null,
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "24056bb3-21e9-4a0a-9690-1037c658f1ae",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 604800,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:ips"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "table",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 1000,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "srcip"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 1000
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "37230a0a-f3b4-4fab-94b1-cfa1423fe945",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 604800,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:ips"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "table",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 1000,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "attackid"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 1000
+                      }
+                    },
+                    {
+                      "fields": [
+                        "attack"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 1000
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "6560d99f-3012-4b4e-b79c-da58f571267c",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 604800,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:ips"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "pie",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 15,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "action"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 15
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": null,
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              }
+            ],
+            "widget_mapping": {
+              "24056bb3-21e9-4a0a-9690-1037c658f1ae": [
+                "e9f42890-eadb-4ba0-adef-fbbb4263da34"
+              ],
+              "6560d99f-3012-4b4e-b79c-da58f571267c": [
+                "97657504-87f2-4649-aa53-0c36c9ac2a86"
+              ],
+              "658ea93a-90ff-49dc-925a-05c69b694741": [
+                "6cb07d43-2c3b-4dfa-a48d-911381c1ef61"
+              ],
+              "e1fe56f6-35fc-4bc6-bc7f-cf9e467baf0c": [
+                "7a965634-07bd-42f5-a78c-6bbe81d8d77f"
+              ],
+              "3804338a-f8a1-4147-9a4f-0a75f3bf594a": [
+                "96ad286e-e2dc-47cb-995f-3aceaac07d66"
+              ],
+              "37230a0a-f3b4-4fab-94b1-cfa1423fe945": [
+                "3bb28260-c1fc-42aa-b2b8-507172d87c04"
+              ]
+            },
+            "positions": {
+              "24056bb3-21e9-4a0a-9690-1037c658f1ae": {
+                "col": 6,
+                "row": 26,
+                "height": 4,
+                "width": 7
+              },
+              "6560d99f-3012-4b4e-b79c-da58f571267c": {
+                "col": 5,
+                "row": 22,
+                "height": 4,
+                "width": 4
+              },
+              "658ea93a-90ff-49dc-925a-05c69b694741": {
+                "col": 9,
+                "row": 22,
+                "height": 4,
+                "width": 4
+              },
+              "e1fe56f6-35fc-4bc6-bc7f-cf9e467baf0c": {
+                "col": 1,
+                "row": 30,
+                "height": 5,
+                "width": "Infinity"
+              },
+              "3804338a-f8a1-4147-9a4f-0a75f3bf594a": {
+                "col": 1,
+                "row": 22,
+                "height": 4,
+                "width": 4
+              },
+              "37230a0a-f3b4-4fab-94b1-cfa1423fe945": {
+                "col": 1,
+                "row": 26,
+                "height": 4,
+                "width": 5
+              }
+            },
+            "formatting": {
+              "highlighting": []
+            },
+            "display_mode_settings": {
+              "positions": {}
+            }
+          },
+          "72074b7f-aa55-4176-98e5-24e96325d82b": {
+            "selected_fields": null,
+            "static_message_list_id": null,
+            "titles": {
+              "tab": {
+                "title": "Local Traffic"
+              },
+              "widget": {
+                "4f88a222-c404-451a-b958-cfe18153d9f8": "Top 500 Sources",
+                "6fe9e2b7-b209-404c-aeac-336a97e78f67": "Top 500 Destinations",
+                "undefined": "Top 500 Applications",
+                "5a88304b-2a6c-4b45-bcd6-35282dac1c39": "Details",
+                "cd153798-774d-4bac-b62d-9d83be4d2447": "Top 500 Interfaces",
+                "ddd5d931-ed8c-4198-b1e0-8c06209f4868": "Top 500 Applications"
+              }
+            },
+            "widgets": [
+              {
+                "id": "cd153798-774d-4bac-b62d-9d83be4d2447",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:local"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "table",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 500,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "srcintf"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    },
+                    {
+                      "fields": [
+                        "dstintf"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "ddd5d931-ed8c-4198-b1e0-8c06209f4868",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:local AND _exists_:app"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "table",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 500,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "app"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "4f88a222-c404-451a-b958-cfe18153d9f8",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:local"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "table",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 500,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "srcip",
+                        "srcmac",
+                        "srcname"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    },
+                    {
+                      "fields": [
+                        "srchwvendor"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    },
+                    {
+                      "fields": [
+                        "srcfamily"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    },
+                    {
+                      "fields": [
+                        "osname"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    },
+                    {
+                      "fields": [
+                        "devtype"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "6fe9e2b7-b209-404c-aeac-336a97e78f67",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:local"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "table",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 500,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "dstip"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    },
+                    {
+                      "fields": [
+                        "dstname"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "5a88304b-2a6c-4b45-bcd6-35282dac1c39",
+                "type": "messages",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:local"
+                },
+                "streams": [],
+                "config": {
+                  "fields": [
+                    "timestamp",
+                    "srcip",
+                    "srcname",
+                    "dstip",
+                    "dstname",
+                    "dstport",
+                    "app",
+                    "action"
+                  ],
+                  "show_message_row": true,
+                  "show_summary": true,
+                  "decorators": [],
+                  "sort": [
+                    {
+                      "type": "pivot",
+                      "field": "timestamp",
+                      "direction": "Descending"
+                    }
+                  ]
+                }
+              }
+            ],
+            "widget_mapping": {
+              "4f88a222-c404-451a-b958-cfe18153d9f8": [
+                "6be2c492-9853-4aee-b0dc-21f23f7ce69b"
+              ],
+              "6fe9e2b7-b209-404c-aeac-336a97e78f67": [
+                "d044655d-b36d-4330-8d31-51aae5eb20b2"
+              ],
+              "5a88304b-2a6c-4b45-bcd6-35282dac1c39": [
+                "f11775e2-dd92-474f-9175-e4f9c91b3197"
+              ],
+              "cd153798-774d-4bac-b62d-9d83be4d2447": [
+                "88162f9f-f4f7-4a38-9966-40314d202252"
+              ],
+              "ddd5d931-ed8c-4198-b1e0-8c06209f4868": [
+                "44d436c0-7c48-4c6c-a6aa-8f9868d9038b"
+              ]
+            },
+            "positions": {
+              "4f88a222-c404-451a-b958-cfe18153d9f8": {
+                "col": 1,
+                "row": 16,
+                "height": 4,
+                "width": "Infinity"
+              },
+              "6fe9e2b7-b209-404c-aeac-336a97e78f67": {
+                "col": 5,
+                "row": 20,
+                "height": 4,
+                "width": 4
+              },
+              "5a88304b-2a6c-4b45-bcd6-35282dac1c39": {
+                "col": 1,
+                "row": 25,
+                "height": 6,
+                "width": "Infinity"
+              },
+              "cd153798-774d-4bac-b62d-9d83be4d2447": {
+                "col": 1,
+                "row": 20,
+                "height": 4,
+                "width": 4
+              },
+              "ddd5d931-ed8c-4198-b1e0-8c06209f4868": {
+                "col": 9,
+                "row": 21,
+                "height": 4,
+                "width": 4
+              }
+            },
+            "formatting": {
+              "highlighting": []
+            },
+            "display_mode_settings": {
+              "positions": {}
+            }
+          },
+          "0444614a-4f87-407e-953f-b6ade0610d45": {
+            "selected_fields": null,
+            "static_message_list_id": null,
+            "titles": {
+              "tab": {
+                "title": "DNS Filter"
+              },
+              "widget": {
+                "1fe2d94d-bb5b-4857-ad0b-b8e300c4bc06": "Details",
+                "2941833c-8ee5-409e-a537-6ffa37cde0b5": "Top 20 DNS Categories",
+                "140b980d-9f57-413b-90cf-1cd7dfd7696e": "DNS Action",
+                "a46359a8-3ab0-46f9-8997-ab6f88ea97aa": "Top 500 DNS Resolvers",
+                "123485ad-6213-40e7-a3f4-d85f709fc7d7": "Top 500 DNS Clients"
+              }
+            },
+            "widgets": [
+              {
+                "id": "123485ad-6213-40e7-a3f4-d85f709fc7d7",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "eventtype:dns\\-query"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "table",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 500,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "srcip"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    },
+                    {
+                      "fields": [
+                        "srcmac"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "1fe2d94d-bb5b-4857-ad0b-b8e300c4bc06",
+                "type": "messages",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:dns"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "fields": [
+                    "timestamp",
+                    "srcip",
+                    "qname",
+                    "qclass",
+                    "qtype",
+                    "eventtype",
+                    "catdesc",
+                    "action"
+                  ],
+                  "show_message_row": true,
+                  "show_summary": true,
+                  "decorators": [],
+                  "sort": [
+                    {
+                      "type": "pivot",
+                      "field": "timestamp",
+                      "direction": "Descending"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "140b980d-9f57-413b-90cf-1cd7dfd7696e",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "eventtype:dns\\-response"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "pie",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 20,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "action"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 20
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": null,
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "2941833c-8ee5-409e-a537-6ffa37cde0b5",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "eventtype:dns\\-response"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "pie",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 20,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "catdesc"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 20
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": null,
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "a46359a8-3ab0-46f9-8997-ab6f88ea97aa",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "eventtype:dns\\-query"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "table",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 500,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "dstip"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              }
+            ],
+            "widget_mapping": {
+              "a46359a8-3ab0-46f9-8997-ab6f88ea97aa": [
+                "9048c489-b2a9-4b9b-9607-888c6fb9ceaf"
+              ],
+              "1fe2d94d-bb5b-4857-ad0b-b8e300c4bc06": [
+                "b95c6b8b-9257-4d5e-b0c4-a1fb5ce904a0"
+              ],
+              "140b980d-9f57-413b-90cf-1cd7dfd7696e": [
+                "6b50b036-c2b8-4b84-a67a-d92146b3be84"
+              ],
+              "123485ad-6213-40e7-a3f4-d85f709fc7d7": [
+                "21705b0e-7ac2-4093-8d65-8ead4ef32f7f"
+              ],
+              "2941833c-8ee5-409e-a537-6ffa37cde0b5": [
+                "a2ce8b7c-d07d-493d-953b-a24c5c44b45a"
+              ]
+            },
+            "positions": {
+              "a46359a8-3ab0-46f9-8997-ab6f88ea97aa": {
+                "col": 8,
+                "row": 12,
+                "height": 4,
+                "width": 5
+              },
+              "1fe2d94d-bb5b-4857-ad0b-b8e300c4bc06": {
+                "col": 1,
+                "row": 16,
+                "height": 5,
+                "width": "Infinity"
+              },
+              "140b980d-9f57-413b-90cf-1cd7dfd7696e": {
+                "col": 8,
+                "row": 6,
+                "height": 5,
+                "width": 5
+              },
+              "123485ad-6213-40e7-a3f4-d85f709fc7d7": {
+                "col": 1,
+                "row": 11,
+                "height": 4,
+                "width": 7
+              },
+              "2941833c-8ee5-409e-a537-6ffa37cde0b5": {
+                "col": 1,
+                "row": 6,
+                "height": 5,
+                "width": 7
+              }
+            },
+            "formatting": {
+              "highlighting": []
+            },
+            "display_mode_settings": {
+              "positions": {}
+            }
+          },
+          "e6a39179-8355-4c52-83b0-9b771f546c75": {
+            "selected_fields": null,
+            "static_message_list_id": null,
+            "titles": {
+              "tab": {
+                "title": "SSL/TLS/SSH Inspection"
+              },
+              "widget": {
+                "cae6a7c4-8ac1-4b55-80bb-9512795a3133": "Action",
+                "74547fb3-89d5-43fe-b1f9-d874b1bccdad": "Details"
+              }
+            },
+            "widgets": [
+              {
+                "id": "74547fb3-89d5-43fe-b1f9-d874b1bccdad",
+                "type": "messages",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 86400,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:ssl"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "fields": [
+                    "timestamp",
+                    "srcip",
+                    "dstip",
+                    "hostname",
+                    "eventsubtype",
+                    "action"
+                  ],
+                  "show_message_row": true,
+                  "show_summary": true,
+                  "decorators": [],
+                  "sort": [
+                    {
+                      "type": "pivot",
+                      "field": "timestamp",
+                      "direction": "Descending"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "cae6a7c4-8ac1-4b55-80bb-9512795a3133",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 86400,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:ssl"
+                },
+                "streams": [],
+                "config": {
+                  "visualization": "pie",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 15,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "action"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 15
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": null,
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              }
+            ],
+            "widget_mapping": {
+              "74547fb3-89d5-43fe-b1f9-d874b1bccdad": [
+                "4f33c522-e48b-425a-8223-9fa7242c91d8"
+              ],
+              "cae6a7c4-8ac1-4b55-80bb-9512795a3133": [
+                "103083fb-acef-4ae2-ad6f-68cce6a24bc3"
+              ]
+            },
+            "positions": {
+              "74547fb3-89d5-43fe-b1f9-d874b1bccdad": {
+                "col": 1,
+                "row": 18,
+                "height": 5,
+                "width": "Infinity"
+              },
+              "cae6a7c4-8ac1-4b55-80bb-9512795a3133": {
+                "col": 1,
+                "row": 14,
+                "height": 4,
+                "width": 4
+              }
+            },
+            "formatting": {
+              "highlighting": []
+            },
+            "display_mode_settings": {
+              "positions": {}
+            }
+          },
+          "db280891-ac9d-4c87-9ee0-3b2e9a9ebc6a": {
+            "selected_fields": null,
+            "static_message_list_id": null,
+            "titles": {
+              "tab": {
+                "title": "Multicast Traffic"
+              },
+              "widget": {
+                "3b9b1eed-a05b-4a15-b881-cf642dbb4af0": "Top 500 Sources",
+                "501f0827-14b6-44f0-9fbe-e1736ede3ab8": "Top 500 Destinations",
+                "undefined": "Top 500 Applications",
+                "7a14829f-4ad0-424d-8dbc-5be067901986": "Details",
+                "cce71385-474e-447d-8f2a-3d9507935593": "Top 500 Interfaces",
+                "ffa18ddf-8487-498e-afc7-54002571fa90": "Top 500 Applications",
+                "94f227d2-3e21-42d8-8a68-128d90c79d3a": "Action"
+              }
+            },
+            "widgets": [
+              {
+                "id": "501f0827-14b6-44f0-9fbe-e1736ede3ab8",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:multicast"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "table",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 500,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "dstip"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "ffa18ddf-8487-498e-afc7-54002571fa90",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:multicast"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "table",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 500,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "service"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "94f227d2-3e21-42d8-8a68-128d90c79d3a",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:multicast"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "table",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 50,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "action"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 50
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "cce71385-474e-447d-8f2a-3d9507935593",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:multicast"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "table",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 500,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "srcintf"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    },
+                    {
+                      "fields": [
+                        "dstintf"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "7a14829f-4ad0-424d-8dbc-5be067901986",
+                "type": "messages",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:multicast"
+                },
+                "streams": [],
+                "config": {
+                  "fields": [
+                    "timestamp",
+                    "srcip",
+                    "srcname",
+                    "dstip",
+                    "dstport",
+                    "service",
+                    "action"
+                  ],
+                  "show_message_row": true,
+                  "show_summary": true,
+                  "decorators": [],
+                  "sort": [
+                    {
+                      "type": "pivot",
+                      "field": "timestamp",
+                      "direction": "Descending"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "3b9b1eed-a05b-4a15-b881-cf642dbb4af0",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:multicast"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "table",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 500,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "srcip"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    },
+                    {
+                      "fields": [
+                        "srcname"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              }
+            ],
+            "widget_mapping": {
+              "3b9b1eed-a05b-4a15-b881-cf642dbb4af0": [
+                "351196ba-2b98-40c6-9d6b-5d93fa080b90"
+              ],
+              "501f0827-14b6-44f0-9fbe-e1736ede3ab8": [
+                "f77d637b-f837-4fda-8928-303e5bfb9c05"
+              ],
+              "7a14829f-4ad0-424d-8dbc-5be067901986": [
+                "b2f6d548-7da2-437d-bb87-a4db5fb8a746"
+              ],
+              "cce71385-474e-447d-8f2a-3d9507935593": [
+                "b966b041-791c-4094-a57c-f004cbecb120"
+              ],
+              "ffa18ddf-8487-498e-afc7-54002571fa90": [
+                "f3433e23-8ef6-4e71-9801-7ed48aae1168"
+              ],
+              "94f227d2-3e21-42d8-8a68-128d90c79d3a": [
+                "19a123ed-4348-41ae-8ebd-3f919dc00586"
+              ]
+            },
+            "positions": {
+              "94f227d2-3e21-42d8-8a68-128d90c79d3a": {
+                "col": 8,
+                "row": 5,
+                "height": 4,
+                "width": 5
+              },
+              "ffa18ddf-8487-498e-afc7-54002571fa90": {
+                "col": 1,
+                "row": 5,
+                "height": 4,
+                "width": 7
+              },
+              "cce71385-474e-447d-8f2a-3d9507935593": {
+                "col": 8,
+                "row": 1,
+                "height": 4,
+                "width": 5
+              },
+              "7a14829f-4ad0-424d-8dbc-5be067901986": {
+                "col": 1,
+                "row": 9,
+                "height": 6,
+                "width": "Infinity"
+              },
+              "501f0827-14b6-44f0-9fbe-e1736ede3ab8": {
+                "col": 5,
+                "row": 1,
+                "height": 4,
+                "width": 3
+              },
+              "3b9b1eed-a05b-4a15-b881-cf642dbb4af0": {
+                "col": 1,
+                "row": 1,
+                "height": 4,
+                "width": 4
+              }
+            },
+            "formatting": {
+              "highlighting": []
+            },
+            "display_mode_settings": {
+              "positions": {}
+            }
+          },
+          "9d8f85ce-f536-44d4-95d6-c2223e233a42": {
+            "selected_fields": null,
+            "static_message_list_id": null,
+            "titles": {
+              "tab": {
+                "title": "Forward Traffic"
+              },
+              "widget": {
+                "ef814c0b-7f72-4851-83e8-896490bb21b4": "Top 500 Sources",
+                "e32daa88-86fa-4494-8ff0-661d934dfc5d": "Top 500 Destinations",
+                "fafe3366-f58b-4c5a-82a3-4999ee97e40a": "Top 10 Applications",
+                "565ed325-86ae-47da-8d1c-461492a5aba1": "Top 10 Applications Categories",
+                "60619577-03f8-401d-8c4b-86c9320c8b53": "Details",
+                "9d9eaebf-0e0e-4e4d-b7ab-1e3cf90a870a": "Top 500 Applications",
+                "dd3537ab-7925-4507-832c-cd1589a2546d": "Top 500 Interfaces",
+                "4f3cff32-b6b2-4765-9657-73828b1cfad2": "Top 500 Applications"
+              }
+            },
+            "widgets": [
+              {
+                "id": "dd3537ab-7925-4507-832c-cd1589a2546d",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:forward"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "table",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 500,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "srcintf"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    },
+                    {
+                      "fields": [
+                        "dstintf"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "4f3cff32-b6b2-4765-9657-73828b1cfad2",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:forward AND _exists_:app"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "table",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 500,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "app"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "ef814c0b-7f72-4851-83e8-896490bb21b4",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:forward"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "table",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 500,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "srcip",
+                        "srcmac",
+                        "srcname"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    },
+                    {
+                      "fields": [
+                        "srchwvendor"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    },
+                    {
+                      "fields": [
+                        "srcfamily"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    },
+                    {
+                      "fields": [
+                        "osname"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    },
+                    {
+                      "fields": [
+                        "devtype"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "e32daa88-86fa-4494-8ff0-661d934dfc5d",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:forward"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "table",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 500,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "dstip"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    },
+                    {
+                      "fields": [
+                        "dstname"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 500
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "60619577-03f8-401d-8c4b-86c9320c8b53",
+                "type": "messages",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:forward"
+                },
+                "streams": [],
+                "config": {
+                  "fields": [
+                    "timestamp",
+                    "srcip",
+                    "srcname",
+                    "dstip",
+                    "dstname",
+                    "dstport",
+                    "app",
+                    "action"
+                  ],
+                  "show_message_row": true,
+                  "show_summary": true,
+                  "decorators": [],
+                  "sort": [
+                    {
+                      "type": "pivot",
+                      "field": "timestamp",
+                      "direction": "Descending"
+                    }
+                  ]
+                }
+              }
+            ],
+            "widget_mapping": {
+              "ef814c0b-7f72-4851-83e8-896490bb21b4": [
+                "d827ee27-d4cd-49c2-855e-f4fcea892d94"
+              ],
+              "e32daa88-86fa-4494-8ff0-661d934dfc5d": [
+                "d047e600-b742-4c38-a425-50cef647ccfb"
+              ],
+              "60619577-03f8-401d-8c4b-86c9320c8b53": [
+                "0c86ea94-20ad-4de8-a24f-9476110767a6"
+              ],
+              "dd3537ab-7925-4507-832c-cd1589a2546d": [
+                "179d92bd-031d-431c-a5e6-29d14dcf3599"
+              ],
+              "4f3cff32-b6b2-4765-9657-73828b1cfad2": [
+                "f8c31192-d72e-49d0-8e07-9e1014952426"
+              ]
+            },
+            "positions": {
+              "ef814c0b-7f72-4851-83e8-896490bb21b4": {
+                "col": 1,
+                "row": 11,
+                "height": 4,
+                "width": "Infinity"
+              },
+              "e32daa88-86fa-4494-8ff0-661d934dfc5d": {
+                "col": 5,
+                "row": 15,
+                "height": 4,
+                "width": 4
+              },
+              "60619577-03f8-401d-8c4b-86c9320c8b53": {
+                "col": 1,
+                "row": 20,
+                "height": 6,
+                "width": "Infinity"
+              },
+              "dd3537ab-7925-4507-832c-cd1589a2546d": {
+                "col": 1,
+                "row": 15,
+                "height": 4,
+                "width": 4
+              },
+              "4f3cff32-b6b2-4765-9657-73828b1cfad2": {
+                "col": 9,
+                "row": 16,
+                "height": 4,
+                "width": 4
+              }
+            },
+            "formatting": {
+              "highlighting": []
+            },
+            "display_mode_settings": {
+              "positions": {}
+            }
+          },
+          "34d9ef39-dd5c-4454-9307-a94551327f9d": {
+            "selected_fields": null,
+            "static_message_list_id": null,
+            "titles": {
+              "tab": {
+                "title": "VPN"
+              }
+            },
+            "widgets": [],
+            "widget_mapping": {},
+            "positions": {},
+            "formatting": {
+              "highlighting": []
+            },
+            "display_mode_settings": {
+              "positions": {}
+            }
+          },
+          "7f432e7d-7180-4335-8fa6-b3720401fdf9": {
+            "selected_fields": null,
+            "static_message_list_id": null,
+            "titles": {
+              "tab": {
+                "title": "Overview"
+              },
+              "widget": {
+                "989db1bf-9206-4345-b95f-462ff0072d05": "Incoming Message Count",
+                "916975d9-4fa1-46f6-90b9-c259227f95f6": "Firewalls",
+                "db017cbf-de23-4220-8441-3a3b32093e08": "Details",
+                "c43d042d-e42a-4ec7-81b3-57b08f6db347": "Log Levels",
+                "81f73ae9-bd73-4f66-82ae-7db3e0be6246": "Message Types",
+                "dbe512cb-0681-489f-a58c-b9d570debe11": "Messages for subtype:forward"
+              }
+            },
+            "widgets": [
+              {
+                "id": "81f73ae9-bd73-4f66-82ae-7db3e0be6246",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": ""
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "table",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 100,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "subtype"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 100
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "c43d042d-e42a-4ec7-81b3-57b08f6db347",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": ""
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "pie",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 15,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "level"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 15
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": null,
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "989db1bf-9206-4345-b95f-462ff0072d05",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": ""
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "numeric",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": null,
+                  "row_pivots": [],
+                  "series": [
+                    {
+                      "config": {
+                        "name": "Message Count"
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": null,
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "916975d9-4fa1-46f6-90b9-c259227f95f6",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": ""
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "table",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 1000,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "source"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 1000
+                      }
+                    },
+                    {
+                      "fields": [
+                        "devid"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 1000
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": {
+                    "pinned_columns": []
+                  },
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "db017cbf-de23-4220-8441-3a3b32093e08",
+                "type": "messages",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": ""
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "fields": [
+                    "timestamp",
+                    "source",
+                    "devid",
+                    "subtype"
+                  ],
+                  "show_message_row": true,
+                  "show_summary": true,
+                  "decorators": [],
+                  "sort": [
+                    {
+                      "type": "pivot",
+                      "field": "timestamp",
+                      "direction": "Descending"
+                    }
+                  ]
+                }
+              }
+            ],
+            "widget_mapping": {
+              "81f73ae9-bd73-4f66-82ae-7db3e0be6246": [
+                "2502dbbb-6184-4f50-8f28-1b3755450637"
+              ],
+              "db017cbf-de23-4220-8441-3a3b32093e08": [
+                "44feb8b9-d3fb-4b71-b266-6aeb7ad2612b"
+              ],
+              "989db1bf-9206-4345-b95f-462ff0072d05": [
+                "ceef4194-9349-4ec7-8050-1c51e61fccfe"
+              ],
+              "916975d9-4fa1-46f6-90b9-c259227f95f6": [
+                "003e338d-061d-44e0-bde8-2e138a1d7991"
+              ],
+              "c43d042d-e42a-4ec7-81b3-57b08f6db347": [
+                "498d6b61-163b-4e28-944a-f5a6a17c6666"
+              ]
+            },
+            "positions": {
+              "81f73ae9-bd73-4f66-82ae-7db3e0be6246": {
+                "col": 1,
+                "row": 16,
+                "height": 5,
+                "width": 3
+              },
+              "db017cbf-de23-4220-8441-3a3b32093e08": {
+                "col": 4,
+                "row": 16,
+                "height": 5,
+                "width": 9
+              },
+              "989db1bf-9206-4345-b95f-462ff0072d05": {
+                "col": 1,
+                "row": 12,
+                "height": 4,
+                "width": 4
+              },
+              "916975d9-4fa1-46f6-90b9-c259227f95f6": {
+                "col": 5,
+                "row": 12,
+                "height": 4,
+                "width": 4
+              },
+              "c43d042d-e42a-4ec7-81b3-57b08f6db347": {
+                "col": 9,
+                "row": 12,
+                "height": 4,
+                "width": 4
+              }
+            },
+            "formatting": {
+              "highlighting": []
+            },
+            "display_mode_settings": {
+              "positions": {}
+            }
+          },
+          "9d3956e6-8403-43e2-9794-6287c22e83e3": {
+            "selected_fields": null,
+            "static_message_list_id": null,
+            "titles": {
+              "tab": {
+                "title": "Web Filter"
+              },
+              "widget": {
+                "9693b5ea-6caf-42d7-840d-51f2f025a36b": "Top 20 Categories",
+                "f08c212f-5063-4c1b-9811-6ac338c6b820": "Action",
+                "b5621cf7-0735-46e6-b1d1-f394ba376db6": "Details"
+              }
+            },
+            "widgets": [
+              {
+                "id": "b5621cf7-0735-46e6-b1d1-f394ba376db6",
+                "type": "messages",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:webfilter"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "fields": [
+                    "timestamp",
+                    "srcip",
+                    "dstip",
+                    "hostname",
+                    "action"
+                  ],
+                  "show_message_row": true,
+                  "show_summary": true,
+                  "decorators": [],
+                  "sort": [
+                    {
+                      "type": "pivot",
+                      "field": "timestamp",
+                      "direction": "Descending"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "f08c212f-5063-4c1b-9811-6ac338c6b820",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:webfilter"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "pie",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 15,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "action"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 15
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": null,
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              },
+              {
+                "id": "9693b5ea-6caf-42d7-840d-51f2f025a36b",
+                "type": "aggregation",
+                "filter": null,
+                "filters": [],
+                "timerange": {
+                  "from": 300,
+                  "type": "relative"
+                },
+                "query": {
+                  "type": "elasticsearch",
+                  "query_string": "subtype:webfilter"
+                },
+                "streams": [
+                  "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d"
+                ],
+                "config": {
+                  "visualization": "pie",
+                  "column_limit": null,
+                  "event_annotation": false,
+                  "row_limit": 15,
+                  "row_pivots": [
+                    {
+                      "fields": [
+                        "catdesc"
+                      ],
+                      "type": "values",
+                      "config": {
+                        "limit": 15
+                      }
+                    }
+                  ],
+                  "series": [
+                    {
+                      "config": {
+                        "name": null
+                      },
+                      "function": "count()"
+                    }
+                  ],
+                  "rollup": false,
+                  "column_pivots": [],
+                  "visualization_config": null,
+                  "formatting_settings": null,
+                  "sort": []
+                }
+              }
+            ],
+            "widget_mapping": {
+              "f08c212f-5063-4c1b-9811-6ac338c6b820": [
+                "adfb4789-a0d0-4c62-a559-37a3245eea31"
+              ],
+              "9693b5ea-6caf-42d7-840d-51f2f025a36b": [
+                "abd2eff3-29c5-4b2c-9fe0-ff109b672035"
+              ],
+              "b5621cf7-0735-46e6-b1d1-f394ba376db6": [
+                "9d1337df-b50d-4682-9c9e-d19fa35750aa"
+              ]
+            },
+            "positions": {
+              "f08c212f-5063-4c1b-9811-6ac338c6b820": {
+                "col": 9,
+                "row": 4,
+                "height": 5,
+                "width": 4
+              },
+              "9693b5ea-6caf-42d7-840d-51f2f025a36b": {
+                "col": 1,
+                "row": 4,
+                "height": 5,
+                "width": 8
+              },
+              "b5621cf7-0735-46e6-b1d1-f394ba376db6": {
+                "col": 1,
+                "row": 9,
+                "height": 8,
+                "width": "Infinity"
+              }
+            },
+            "formatting": {
+              "highlighting": []
+            },
+            "display_mode_settings": {
+              "positions": {}
+            }
+          }
+        },
+        "properties": [],
+        "owner": "sean",
+        "title": {
+          "@type": "string",
+          "@value": "FortiGate"
+        },
+        "type": "DASHBOARD",
+        "description": {
+          "@type": "string",
+          "@value": "Dashboards for analyzing Application Control, DNS Filtering, Forward Traffic, IPS, Local Traffic, Multicast Traffic, SSL/TLS/SSH Inspection, VPN, and Web Filtering logs"
+        }
+      },
+      "constraints": [
+        {
+          "type": "server-version",
+          "version": ">=5.0.6+51f2df8"
+        }
+      ]
+    },
+    {
+      "v": "1",
+      "type": {
+        "name": "stream",
+        "version": "1"
+      },
+      "id": "1904e3bb-fc5d-4424-aec4-8f634d2d9b7d",
+      "data": {
+        "alarm_callbacks": [],
+        "outputs": [],
+        "remove_matches": {
+          "@type": "boolean",
+          "@value": true
+        },
+        "title": {
+          "@type": "string",
+          "@value": "FortiGate Syslog"
+        },
+        "stream_rules": [
+          {
+            "type": {
+              "@type": "string",
+              "@value": "REGEX"
+            },
+            "field": {
+              "@type": "string",
+              "@value": "devid"
+            },
+            "value": {
+              "@type": "string",
+              "@value": "^FGT"
+            },
+            "inverted": {
+              "@type": "boolean",
+              "@value": false
+            },
+            "description": {
+              "@type": "string",
+              "@value": ""
+            }
+          }
+        ],
+        "alert_conditions": [],
+        "matching_type": {
+          "@type": "string",
+          "@value": "AND"
+        },
+        "disabled": {
+          "@type": "boolean",
+          "@value": false
+        },
+        "description": {
+          "@type": "string",
+          "@value": "Logs from FortiGate firewalls"
+        },
+        "default_stream": {
+          "@type": "boolean",
+          "@value": false
+        }
+      },
+      "constraints": [
+        {
+          "type": "server-version",
+          "version": ">=5.0.6+51f2df8"
+        }
+      ]
+    }
+  ]
+}
