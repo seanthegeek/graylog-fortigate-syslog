@@ -11,13 +11,13 @@ In Graylog, a stream routes log data to a specific index based on rules. This Co
 
 ### FortiGate Syslog
 
-Contains a rule that matches all logs with a field named `devid` that has a value that starts with `FGT`, which is the beginning of every FortiGate seral number, and is included in every FordiGate log message.
+The FortiGate Syslog stream includes a rule that matches all logs with a field named `devid` that has a value that starts with `FGT`, which is the beginning of every FortiGate seral number, and is included in every FordiGate log message.
 
 ## Dashboards
 
 ### FortiGate
 
-The fortiDate dashboard has multiple pages. Each page contains a collection of dashboard widgets releated to a specific type of log data.
+The fortiGate dashboard has multiple pages. Each page contains a collection of dashboard widgets releated to a specific type of log data.
 
 - Overview
 - Application Control
