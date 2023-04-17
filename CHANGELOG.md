@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.0-rev7
+
+- Remove duplicate streams from the content pack
+- Add `user` field as a column in each Details table
+- Add `catdesc` field in Web Filter Details table
+
 ## 1.1.0-rev4
 
 - Add missing Details event table to the VPN dashboard page
