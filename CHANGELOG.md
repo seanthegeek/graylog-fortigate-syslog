@@ -1,6 +1,5 @@
 # Changelog
 
-
 ## 1.2.1-rev8
 
 - Fix the order of the dashboard tabs
