@@ -1,5 +1,10 @@
 # Changelog
 
+
+## 1.2.1-rev8
+
+- Fix the order of the dashboard tabs
+
 ## 1.2.0-rev7
 
 - Remove duplicate streams from the content pack
