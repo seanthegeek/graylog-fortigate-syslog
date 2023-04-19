@@ -1,6 +1,10 @@
 # Changelog
 
-## 1.2.1-rev8
+## 1.3.0-rev9
+
+- Fix install failures (issue #1)
+
+## ## 1.2.1-rev8
 
 - Fix the order of the dashboard tabs
 
