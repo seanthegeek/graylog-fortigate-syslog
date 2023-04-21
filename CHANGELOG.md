@@ -2,7 +2,7 @@
 
 ## 1.3.1-rev10
 
-- Update Fortigate Syslog Stream rule regex to include more formats of Fortigate serial numbers
+- Update FortiGate Syslog Stream rule regex to include more formats of FortiGate serial numbers
 
 ## 1.3.0-rev9
 
