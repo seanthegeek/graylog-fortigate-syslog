@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.1-rev10
+
+- Update Fortigate Syslog Stream rule regex to include more formats of Fortigate serial numbers
+
 ## 1.3.0-rev9
 
 - Fix install failures (issue #1)
