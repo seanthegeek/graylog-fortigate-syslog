@@ -1,0 +1,28 @@
+{
+    "cSpell.words": [
+        "attackid",
+        "catdesc",
+        "crlevel",
+        "devid",
+        "devtype",
+        "dstintf",
+        "dstip",
+        "dstname",
+        "dstport",
+        "eventsubtype",
+        "logdesc",
+        "osname",
+        "qclass",
+        "qname",
+        "qtype",
+        "srccountry",
+        "srcfamily",
+        "srchwvendor",
+        "srcintf",
+        "srcip",
+        "srcmac",
+        "srcname",
+        "timerange",
+        "webfilter"
+    ]
+}

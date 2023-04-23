@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.2-rev11
+
+- Rename the FortiGate dashboard to FortiGate Syslog
+- Sort the dashboard pages again (hopefully the order sticks this time)
+- Fix dashboard typos
+- Update the content pack description/README
+
 ## 1.3.1-rev10
 
 - Update FortiGate Syslog Stream rule regex to include more formats of FortiGate serial numbers
