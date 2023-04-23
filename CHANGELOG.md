@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.3.3-rev12
+
+- Actually include changes that were not saved in 1.3.2-rev11
+  - Rename the FortiGate dashboard to FortiGate Syslog
+  - Sort the dashboard pages again (hopefully the order sticks this time)
+  - Update the content pack description/README
+- IPS dashboard page fixes
+  - Change the time range of the Severity widget from 30 days to 7 days to match the rest of the widgets
+  - Rename Untitled Message table to Details
+
 ## 1.3.2-rev11
 
 - Rename the FortiGate dashboard to FortiGate Syslog
