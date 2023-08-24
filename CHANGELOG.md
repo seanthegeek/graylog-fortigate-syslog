@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.3.4-rev13
+
+- Add `applist` column to the Details table in the Application Control tab
+- Add `profile` column to the Details table in the DNS Filter tab
+- Add `policyname` column to the Details table in the Forward Traffic tab
+- Add `profile` column to the Details table in the IPS tab
+- Add `policyname` column to the Details table in the Multicast Traffic tab
+- Add `profile` column to the Details table in the SSL/TLS/SSH Inspection tab
+- Add `profile` column to the Details table in the Web Filter tab
+
 ## 1.3.3-rev12
 
 - Actually include changes that were not saved in 1.3.2-rev11
