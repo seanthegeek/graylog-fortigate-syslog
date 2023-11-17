@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.4-rev15
+
+- Remove duplicate stream
+
 ## 1.3.4-rev13
 
 - Add `applist` column to the Details table in the Application Control tab

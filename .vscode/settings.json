@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
+        "applist",
         "attackid",
         "catdesc",
         "crlevel",
@@ -12,6 +13,7 @@
         "eventsubtype",
         "logdesc",
         "osname",
+        "policyname",
         "qclass",
         "qname",
         "qtype",
