@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.1-rev16
+
+- Do not remove the `sessionid` field
+
 ## 1.4.0-rev15
 
 - Add `FortiGate syslog data cleanup` pipeline
