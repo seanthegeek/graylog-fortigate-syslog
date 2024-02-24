@@ -1,6 +1,10 @@
 # Changelog
 
-## 1.3.4-rev15
+## 1.4.0-rev15
+
+- Add `FortiGate syslog data cleanup` pipeline
+
+## 1.3.4-rev14
 
 - Remove duplicate stream
 
