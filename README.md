@@ -16,7 +16,7 @@ The FortiGate Syslog stream includes a rule that matches all logs with a field n
 
 ## FortiGate syslog data cleanup pipeline
 
-Converts FortiGate syslog fields to the correct data type and removes unnecessary fields.
+The FortiGate syslog data cleanup pipeline than be found at the [seanthegeek/graylog/fortigate-syslog-pipeline](https://github.com/seanthegeek/graylog-fortigate-syslog-pipeline) GitHub repository.
 
 ## FortiGate syslog dashboard
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.0-rev18
+
+- Move the pipeline to a separate content pack
+
 ## 1.4.2-rev-17
 
 - Add `craction to long` and `incidentserialno to long` pipeline rules
