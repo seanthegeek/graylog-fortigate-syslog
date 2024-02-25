@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5.2-rev20
+
+- Fix broken install
+- Update `FortiGate Syslog` streeam regex rule to cover more serial numbers (close #9)
+
 ## 1.5.1-rev19
 
 - Revert stream name from `FortiGate syslog` back to `FortiGate Syslog` to resolve compatibility with existing installs
