@@ -1,10 +1,10 @@
 {
   "v": "1",
   "id": "85f976d9-4d2d-45f9-922d-25d2d9c11f87",
-  "rev": 18,
+  "rev": 19,
   "name": "FortiGate syslog",
   "summary": "Dashboards for FortiGate syslog data",
-  "description": "# graylog-fortigate-syslog\n\nA Graylog Content Pack of dashboards for FortiGate syslog data\n\n## Setup\n\nA complete guide can be found on [my blog][blog]. It explains how to create a single-node Graylog instance, import this Content pack, and configure FortiGate firewalls to send logs to the Graylog server.\n\nIn Graylog, a stream routes log data to a specific index based on rules. This Content Pack includes one stream.\n\n## FortiGate syslog stream\n\nIn Graylog, a stream routes log data to a specific index based on rules. This Content Pack includes one stream.\n\nThe FortiGate Syslog stream includes a rule that matches all logs with a field named `devid` that has a value that matches the regex pattern `^FG([0-9]{2,3})[A-Z]T|^FGT`, which is the beginning of every FortiGate seral number, and is included in every FortiGate log message.\n\n## FortiGate syslog data cleanup pipeline\n\nThe FortiGate syslog data cleanup pipeline than be found at the [seanthegeek/graylog/fortigate-syslog-pipeline](https://github.com/seanthegeek/graylog-fortigate-syslog-pipeline) GitHub repository.\n\n## FortiGate Syslog dashboard\n\nThe FortiGate Syslog dashboard has multiple pages. Each page contains a collection of dashboard widgets related to a specific type of log data.\n\n- Overview\n- Application Control\n- DNS Filter\n- Forward Traffic\n- IPS\n- Local Traffic\n- Multicast Traffic\n- SSL/TLS/SSH Inspection\n- VPN\n- Web Filter\n\n[blog]: https://seanthegeek.net/1270/how-to-create-a-single-node-graylog-instance-and-analyze-fortigate-logs/\n",
+  "description": "# graylog-fortigate-syslog\n\nA Graylog Content Pack of dashboards for FortiGate syslog data\n\n## Setup\n\nA complete guide can be found on [my blog][blog]. It explains how to create a single-node Graylog instance, import this Content pack, and configure FortiGate firewalls to send logs to the Graylog server.\n\nIn Graylog, a stream routes log data to a specific index based on rules. This Content Pack includes one stream.\n\n## FortiGate Syslog stream\n\nIn Graylog, a stream routes log data to a specific index based on rules. This Content Pack includes one stream.\n\nThe FortiGate Syslog stream includes a rule that matches all logs with a field named `devid` that has a value that matches the regex pattern `^FG([0-9]{2,3})[A-Z]T|^FGT`, which is the beginning of every FortiGate seral number, and is included in every FortiGate log message.\n\n## FortiGate Syslog data cleanup pipeline\n\nThe FortiGate syslog data cleanup pipeline than be found at the [seanthegeek/graylog/fortigate-syslog-pipeline](https://github.com/seanthegeek/graylog-fortigate-syslog-pipeline) GitHub repository.\n\n## FortiGate Syslog dashboard\n\nThe FortiGate Syslog dashboard has multiple pages. Each page contains a collection of dashboard widgets related to a specific type of log data.\n\n- Overview\n- Application Control\n- DNS Filter\n- Forward Traffic\n- IPS\n- Local Traffic\n- Multicast Traffic\n- SSL/TLS/SSH Inspection\n- VPN\n- Web Filter\n\n[blog]: https://seanthegeek.net/1270/how-to-create-a-single-node-graylog-instance-and-analyze-fortigate-logs/\n",
   "vendor": "Sean Whalen",
   "url": "https://github.com/seanthegeek/graylog-fortigate-syslog",
   "parameters": [],
@@ -4994,7 +4994,7 @@
         "name": "stream",
         "version": "1"
       },
-      "id": "bb4288be-8b03-4fd5-9b55-0b1bc6e38505",
+      "id": "f47c6d69-67a9-4fcf-8ef6-4aab467287bc",
       "data": {
         "alarm_callbacks": [],
         "outputs": [],
@@ -5004,7 +5004,7 @@
         },
         "title": {
           "@type": "string",
-          "@value": "FortiGate syslog"
+          "@value": "FortiGate Syslog"
         },
         "stream_rules": [
           {

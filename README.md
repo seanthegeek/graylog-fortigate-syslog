@@ -8,7 +8,7 @@ A complete guide can be found on [my blog][blog]. It explains how to create a si
 
 In Graylog, a stream routes log data to a specific index based on rules. This Content Pack includes one stream.
 
-## FortiGate syslog stream
+## FortiGate Syslog stream
 
 In Graylog, a stream routes log data to a specific index based on rules. This Content Pack includes one stream.
 
@@ -18,7 +18,7 @@ The FortiGate Syslog stream includes a rule that matches all logs with a field n
 
 The FortiGate syslog data cleanup pipeline than be found at the [seanthegeek/graylog/fortigate-syslog-pipeline](https://github.com/seanthegeek/graylog-fortigate-syslog-pipeline) GitHub repository.
 
-## FortiGate syslog dashboard
+## FortiGate Syslog dashboard
 
 The FortiGate Syslog dashboard has multiple pages. Each page contains a collection of dashboard widgets related to a specific type of log data.
 

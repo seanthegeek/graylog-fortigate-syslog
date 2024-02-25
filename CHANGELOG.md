@@ -1,8 +1,12 @@
 # Changelog
 
+## 1.5.1-rev19
+
+- Revert stream name from `FortiGate syslog` back to `FortiGate Syslog` to resolve compatibility with existing installs
+
 ## 1.5.0-rev18
 
-- Move the pipeline to a separate content pack
+- Move the pipeline to a separate content pack because Graylog does not create the stream required stream included in the content pack before trying to install the pipeline that depends on the stream
 
 ## 1.4.2-rev-17
 
