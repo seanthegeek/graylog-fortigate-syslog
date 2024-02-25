@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.2-rev-17
+
+- Add `craction to long` and `incidentserialno to long` pipeline rules
+
 ## 1.4.1-rev16
 
 - Do not remove the `sessionid` field
