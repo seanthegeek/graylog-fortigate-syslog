@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.2-rev22
+
+- Swap the positions of the Top 500 sources by Bytes and top 100 Destinations by Bytes widgets
+
 ## 1.6.1-rev22
 
 - Add `subtype:forward` to the query for the Top 500 Applications by Bytes widget
