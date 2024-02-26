@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.6.0-rev21
+
+- Add net flow widgets to the Forward Traffic dashboard page
+  - Top 500 Applications by Bytes
+  - Top 500 Destinations by Bytes
+  - Top 500 Sources by Bytes
+
 ## 1.5.2-rev20
 
 - Fix broken install
