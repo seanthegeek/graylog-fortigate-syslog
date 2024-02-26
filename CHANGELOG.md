@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.3-rev23
+
+- Filter out `action:start` in the Top 500 Sources widget in the Forward Traffic dashboard page
+
 ## 1.6.2-rev22
 
 - Swap the positions of the Top 500 sources by Bytes and top 100 Destinations by Bytes widgets
