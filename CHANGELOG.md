@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.1-rev22
+
+- Add `subtype:forward` to the query for the Top 500 Applications by Bytes widget
+
 ## 1.6.0-rev21
 
 - Add net flow widgets to the Forward Traffic dashboard page
