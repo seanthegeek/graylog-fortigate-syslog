@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.4-rev24
+
+- Use `subtype:forward AND action:accept` as the filter query for the net flow widgets
+
 ## 1.6.3-rev23
 
 - Filter out `action:start` in the Top 500 Sources widget in the Forward Traffic dashboard page
