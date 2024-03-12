@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.6.5-rev25
+## 1.6.5-rev26
 
 - Remove `stream_title` object from the content pack
 
