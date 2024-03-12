@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.5-rev25
+
+- Remove `stream_title` object from the content pack
+
 ## 1.6.4-rev24
 
 - Use `subtype:forward AND action:accept` as the filter query for the net flow widgets
