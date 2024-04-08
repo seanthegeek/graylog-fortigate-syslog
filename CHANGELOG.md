@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.5-rev27
+
+- Update `FortiGate Syslog` stream regex rule to cover VM serial numbers (PR #13)
+
 ## 1.6.5-rev26
 
 - Remove `stream_title` object from the content pack
@@ -30,7 +34,7 @@
 ## 1.5.2-rev20
 
 - Fix broken install
-- Update `FortiGate Syslog` streeam regex rule to cover more serial numbers (close #9)
+- Update `FortiGate Syslog` stream regex rule to cover more serial numbers (close #9)
 
 ## 1.5.1-rev19
 
