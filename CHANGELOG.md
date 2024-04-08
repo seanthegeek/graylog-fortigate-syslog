@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.6.5-rev27
+## 1.6.6-rev27
 
 - Update `FortiGate Syslog` stream regex rule to cover VM serial numbers (PR #13)
 
