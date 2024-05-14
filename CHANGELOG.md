@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.7.0-rev29
+
+- Fix byte count dashboard widgets so they do not sum duplicate values
+
 ## 1.6.6-rev27
 
 - Update `FortiGate Syslog` stream regex rule to cover VM serial numbers (PR #13)
