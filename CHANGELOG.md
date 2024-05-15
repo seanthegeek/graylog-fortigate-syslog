@@ -1,7 +1,12 @@
 # Changelog
 
+## 1.7.1-rev30
+
+- Update stream regex to `^FG([0-9]{1,3})[A-Z0-9]+T[A-Z0-9]+$|^FG[A-Z0-9]+$|^FW[A-Z0-9]+$` (PR #14)
+
 ## 1.7.0-rev29
 
+- Suport Graylog 6.0
 - Fix byte count dashboard widgets so they do not sum duplicate values
 
 ## 1.6.6-rev27
