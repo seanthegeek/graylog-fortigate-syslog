@@ -12,7 +12,7 @@ In Graylog, a stream routes log data to a specific index based on rules. This Co
 
 In Graylog, a stream routes log data to a specific index based on rules. This Content Pack includes one stream.
 
-The FortiGate Syslog stream includes a rule that matches all logs with a field named `devid` that has a value that matches the regex pattern `^FG([0-9]{1,3})[A-Z0-9]+T[A-Z0-9]+$|^FG[A-Z0-9]+$|^FW[A-Z0-9]+$`, which is the beginning of every FortiGate seral number, and is included in every FortiGate log message.
+The FortiGate Syslog stream includes a rule that matches all logs with a field named `devid` that has a value that matches the regex pattern `^(FGT|FGVM|FGVMS|FG|FWF|FAP|FAZ-VM|FAZVM|FAZ)[A-Z0-9-]{8,18}$`, which is the beginning of every FortiGate seral number, and is included in every FortiGate log message.
 
 ## FortiGate syslog data cleanup pipeline
 

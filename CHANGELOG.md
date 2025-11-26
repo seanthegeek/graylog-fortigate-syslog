@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.7.2-rev31
+
+- Requires Graylog >= 7.0.1 (Close [#18](https://github.com/seanthegeek/graylog-fortigate-syslog/issues/18))
+- Update stream regex to `^(FGT|FGVM|FGVMS|FG|FWF|FAP|FAZ-VM|FAZVM|FAZ)[A-Z0-9-]{8,18}$` (Close [#16](https://github.com/seanthegeek/graylog-fortigate-syslog/issues/16))
+
 ## 1.7.1-rev30
 
 - Update stream regex to `^FG([0-9]{1,3})[A-Z0-9]+T[A-Z0-9]+$|^FG[A-Z0-9]+$|^FW[A-Z0-9]+$` (PR #14)
